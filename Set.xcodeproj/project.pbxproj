@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD32A54620B4B5E900D48D48 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32A54520B4B5E900D48D48 /* Extensions.swift */; };
 		DD64CF5520B480A400085C44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64CF5420B480A400085C44 /* AppDelegate.swift */; };
 		DD64CF5720B480A400085C44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64CF5620B480A400085C44 /* ViewController.swift */; };
 		DD64CF5A20B480A400085C44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD64CF5820B480A400085C44 /* Main.storyboard */; };
 		DD64CF5C20B480AB00085C44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD64CF5B20B480AB00085C44 /* Assets.xcassets */; };
 		DD64CF5F20B480AB00085C44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD64CF5D20B480AB00085C44 /* LaunchScreen.storyboard */; };
+		DD64CF6720B4827900085C44 /* SetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64CF6620B4827900085C44 /* SetCard.swift */; };
+		DD64CF6A20B4868200085C44 /* CardCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64CF6920B4868200085C44 /* CardCharacteristic.swift */; };
+		DD64CF6C20B4872300085C44 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64CF6B20B4872300085C44 /* SetGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD32A54520B4B5E900D48D48 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DD64CF5120B480A400085C44 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD64CF5420B480A400085C44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD64CF5620B480A400085C44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,9 @@
 		DD64CF5B20B480AB00085C44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD64CF5E20B480AB00085C44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD64CF6020B480AB00085C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD64CF6620B4827900085C44 /* SetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCard.swift; sourceTree = "<group>"; };
+		DD64CF6920B4868200085C44 /* CardCharacteristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCharacteristic.swift; sourceTree = "<group>"; };
+		DD64CF6B20B4872300085C44 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,26 @@
 		DD64CF5320B480A400085C44 /* Set */ = {
 			isa = PBXGroup;
 			children = (
-				DD64CF5420B480A400085C44 /* AppDelegate.swift */,
+				DD64CF6620B4827900085C44 /* SetCard.swift */,
+				DD64CF6920B4868200085C44 /* CardCharacteristic.swift */,
+				DD64CF6B20B4872300085C44 /* SetGame.swift */,
+				DD32A54520B4B5E900D48D48 /* Extensions.swift */,
+				DD64CF6820B482C300085C44 /* Supporting Files */,
 				DD64CF5620B480A400085C44 /* ViewController.swift */,
 				DD64CF5820B480A400085C44 /* Main.storyboard */,
-				DD64CF5B20B480AB00085C44 /* Assets.xcassets */,
-				DD64CF5D20B480AB00085C44 /* LaunchScreen.storyboard */,
 				DD64CF6020B480AB00085C44 /* Info.plist */,
 			);
 			path = Set;
+			sourceTree = "<group>";
+		};
+		DD64CF6820B482C300085C44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD64CF5420B480A400085C44 /* AppDelegate.swift */,
+				DD64CF5B20B480AB00085C44 /* Assets.xcassets */,
+				DD64CF5D20B480AB00085C44 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD64CF6720B4827900085C44 /* SetCard.swift in Sources */,
+				DD32A54620B4B5E900D48D48 /* Extensions.swift in Sources */,
 				DD64CF5720B480A400085C44 /* ViewController.swift in Sources */,
+				DD64CF6C20B4872300085C44 /* SetGame.swift in Sources */,
+				DD64CF6A20B4868200085C44 /* CardCharacteristic.swift in Sources */,
 				DD64CF5520B480A400085C44 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
