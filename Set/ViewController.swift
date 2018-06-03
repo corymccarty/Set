@@ -47,7 +47,8 @@ class ViewController: UIViewController {
             selectionColor = game.isSelectionMatched ? #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1) : #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         }
         for index in cardButtons.indices {
-            if let card = game.cardsInPlay[index].card {
+            if index < game.cardsInPlay.count {
+                let card = game.cardsInPlay[index].card
                 renderCardContent(for: card, on: cardButtons[index])
                 cardButtons[index].layer.cornerRadius = 8.0
                 if game.cardsInPlay[index].isSelected {
@@ -58,6 +59,7 @@ class ViewController: UIViewController {
                     cardButtons[index].layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0).cgColor
                 }
             } else {
+                // No card
                 cardButtons[index].backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
                 cardButtons[index].setAttributedTitle(NSAttributedString(), for: .normal)
                 cardButtons[index].setTitle("", for: .normal)
@@ -69,29 +71,29 @@ class ViewController: UIViewController {
     func renderCardContent(for card: SetCard, on button: UIButton) {
         var foregroundColor: UIColor
         switch card.color {
-        case .one:
-            foregroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        case .two:
-            foregroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-        case .three:
-            foregroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        case .green:
+            foregroundColor = UIColor.green
+        case .red:
+            foregroundColor = UIColor.red
+        case .purple:
+            foregroundColor = UIColor.purple
         }
         var strokeWidth = 0.0
-        switch card.shading {
-        case .one:
+        switch card.fill {
+        case .stripes:
             foregroundColor = foregroundColor.withAlphaComponent(0.25)
-        case .two:
+        case .solid:
             foregroundColor = foregroundColor.withAlphaComponent(1.0)
-        case .three:
+        case .outline:
             strokeWidth = 5.0
         }
         var symbol: String
-        switch card.shape {
-        case .one:
+        switch card.symbol {
+        case .diamond:
             symbol = "▲"
-        case .two:
+        case .oval:
             symbol = "●"
-        case .three:
+        case .squiggle:
             symbol = "■"
         }
         var title: String = String()

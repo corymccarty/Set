@@ -10,15 +10,13 @@ import Foundation
 
 struct SetGame {
     private let initialDeal = 12
-    private let maxAllowableCards = 24
     let maxSelection = 3
     private var selectedCards: [SetCard] {
-        return cardsInPlay.filter { $0.isSelected }.map { $0.card! }
+        return cardsInPlay.filter { $0.isSelected }.map { $0.card }
     }
     private var maxNumberOfCards = 12
     private var deck = [SetCard]()
-    private var matchedCards = [SetCard]()
-    private(set) var cardsInPlay: [(card: SetCard?, isSelected: Bool)]
+    private(set) var cardsInPlay: [(card: SetCard, isSelected: Bool)]
     private(set) var score = 0
     
     var isSelectionMatched: Bool {
@@ -26,7 +24,7 @@ struct SetGame {
     }
     
     var canDealCards: Bool {
-        return maxNumberOfCards < maxAllowableCards && !deck.isEmpty
+        return !deck.isEmpty
     }
     
     var selectedCount: Int {
@@ -43,15 +41,8 @@ struct SetGame {
     
     private mutating func resetBoard() {
         if isSelectionMatched {
-            let draw = drawThreeCards()
-            for newCard in draw {
-                // Replace matched cards from drawn cards
-                cardsInPlay[cardsInPlay.index(where: { $0.isSelected} )!] = (newCard, false)
-            }
-            while let index = cardsInPlay.index(where: { $0.isSelected} ) {
-                // Clear cards that can't be replaced from empty deck
-                cardsInPlay[index] = (nil, false)
-            }
+            cardsInPlay = cardsInPlay.filter { !$0.isSelected }
+            cardsInPlay.append(contentsOf: drawThreeCards().map { (card: $0, isSelected: false) })
         } else {
             // Clear selections
             cardsInPlay = cardsInPlay.map { ($0.card, false) }
@@ -60,14 +51,12 @@ struct SetGame {
     
     mutating func selectCard(withIndex index: Int) {
         let selection = cardsInPlay[index]
-        if selection.card != nil {
-            if selectedCards.count == maxSelection {
-                resetBoard()
-            }
-            cardsInPlay[index].isSelected = !selection.isSelected
-            if selectedCards.count == maxSelection {
-                scoreRound()
-            }
+        if selectedCards.count == maxSelection {
+            resetBoard()
+        }
+        cardsInPlay[index].isSelected = !selection.isSelected
+        if selectedCards.count == maxSelection {
+            scoreRound()
         }
     }
     
@@ -79,28 +68,24 @@ struct SetGame {
         assert(canDealCards, "SetGame.dealThreeCards: Tried to deal cards when already at max")
         let cards = drawThreeCards()
         for card in cards {
-            cardsInPlay[maxNumberOfCards] = (card, false)
+            cardsInPlay.append((card, false))
             maxNumberOfCards += 1
         }
     }
     
     init() {
         deck = [SetCard]()
-        for shape in CardCharacteristic.allValues {
-            for color in CardCharacteristic.allValues {
-                for shading in CardCharacteristic.allValues {
-                    for number in CardCharacteristic.allValues {
-                        deck.append(SetCard(shape: shape, color: color, shading: shading, number: number))
+        for symbol in SetCard.SetSymbol.all {
+            for color in SetCard.SetSymbolColor.all {
+                for fill in SetCard.SetSymbolFill.all {
+                    for count in SetCard.SetSymbolCount.all {
+                        deck.append(SetCard(symbol: symbol, color: color, fill: fill, number: count))
                     }
                 }
             }
         }
         deck.shuffle()
         cardsInPlay = deck.takeFirst(initialDeal).map { ($0, false) }
-        while cardsInPlay.count < maxAllowableCards {
-            cardsInPlay.append((nil, false))
-        }
-        matchedCards = [SetCard]()
     }
 }
 
