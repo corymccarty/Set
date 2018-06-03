@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD030EA320C4679500FB4548 /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD030EA220C4679500FB4548 /* SetCardView.swift */; };
 		DD32A54620B4B5E900D48D48 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32A54520B4B5E900D48D48 /* Extensions.swift */; };
 		DD64CF5520B480A400085C44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64CF5420B480A400085C44 /* AppDelegate.swift */; };
 		DD64CF5720B480A400085C44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64CF5620B480A400085C44 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD030EA220C4679500FB4548 /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 		DD32A54520B4B5E900D48D48 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DD64CF5120B480A400085C44 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD64CF5420B480A400085C44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,10 +65,11 @@
 				DD64CF6620B4827900085C44 /* SetCard.swift */,
 				DD64CF6B20B4872300085C44 /* SetGame.swift */,
 				DD32A54520B4B5E900D48D48 /* Extensions.swift */,
-				DD64CF6820B482C300085C44 /* Supporting Files */,
 				DD64CF5620B480A400085C44 /* ViewController.swift */,
+				DD030EA220C4679500FB4548 /* SetCardView.swift */,
 				DD64CF5820B480A400085C44 /* Main.storyboard */,
 				DD64CF6020B480AB00085C44 /* Info.plist */,
+				DD64CF6820B482C300085C44 /* Supporting Files */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD64CF6720B4827900085C44 /* SetCard.swift in Sources */,
+				DD030EA320C4679500FB4548 /* SetCardView.swift in Sources */,
 				DD32A54620B4B5E900D48D48 /* Extensions.swift in Sources */,
 				DD64CF5720B480A400085C44 /* ViewController.swift in Sources */,
 				DD64CF6C20B4872300085C44 /* SetGame.swift in Sources */,
